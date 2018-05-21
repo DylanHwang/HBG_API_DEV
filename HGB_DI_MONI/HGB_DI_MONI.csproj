@@ -39,8 +39,11 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Json, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Json.4.4.0\lib\netstandard2.0\System.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Json">
-      <HintPath>..\..\..\..\Desktop\HBG_TEST_API\json-for-dotnet-1.2\System.Net.Json.dll</HintPath>
+      <HintPath>..\..\json-for-dotnet-1.2\System.Net.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />

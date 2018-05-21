@@ -1,4 +1,5 @@
 ﻿using HGB_DI_MONI.domain;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -64,12 +65,33 @@ namespace HGB_DI_MONI.service
                 Console.WriteLine(rsResult.result);
 
             }
-            catch(Exception ex)
+            catch (WebException e)
+            {
+                var error_msg = "This program is expected to throw WebException on successful run." +
+                                    "\n\nException Message :" + e.Message + "\n";
+                //Console.WriteLine(error_msg);
+
+                if (e.Status == WebExceptionStatus.ProtocolError)
+                {
+                    //Console.WriteLine("Status Code : {0}", ((HttpWebResponse)e.Response).StatusCode);
+                    //Console.WriteLine("Status Description : {0}", ((HttpWebResponse)e.Response).StatusDescription);
+                    var resp =  new StreamReader(e.Response.GetResponseStream()).ReadToEnd();
+                    JObject obj = JObject.Parse(resp);
+
+                    //Console.WriteLine("Error:" + obj["error"]["message"].ToString());
+                    error_msg += "Detail: " + obj["error"]["message"].ToString();
+
+                }
+
+                rsResult.result = error_msg;
+                rsResult.rq_status = false;
+                // Console.WriteLine("error -------------: " + e.ToString());
+            }
+            catch (Exception ex)
             {                
                 rsResult.result = ex.Message;
                 rsResult.rq_status = false;
-                Console.WriteLine("error -------------: " + ex.ToString());
-
+                //Console.WriteLine("error -------------: " + ex.ToString());
             }
 
             return rsResult;

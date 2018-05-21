@@ -1,25 +1,14 @@
 ﻿using HGB_DI_MONI.domain;
 using HGB_DI_MONI.service;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
 using System.Net.Json;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace HGB_DI_MONI
 {
@@ -193,7 +182,8 @@ namespace HGB_DI_MONI
         }
 
         private async Task<bool> hotelCheckRates(string rateKey)
-        {            
+        {
+            bool check_rst = true;
 
             HttpConnects h_Conn = new HttpConnects(ApiUrl_TB.Text + "/checkrates", ApiKey_TB.Text, Xsignature);
 
@@ -204,7 +194,16 @@ namespace HGB_DI_MONI
             var result =  await h_Conn.searhAllRoomsInHotelS(rq_json);
             Console.WriteLine(result);
 
-            return true;
+            if(result.rq_status == false || result.result == null || result.result == "")
+            {
+                check_rst = false;
+            }
+            else
+            {
+                check_rst = true;
+            }
+
+            return check_rst;
         }        
 
         public string XSignature_Generate()
