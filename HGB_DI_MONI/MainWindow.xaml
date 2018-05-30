@@ -93,9 +93,21 @@
                             <ComboBoxItem>3</ComboBoxItem>
                         </ComboBox>
                         </Grid>
+                        <Grid Width="NaN" Margin="10,10,15,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Content="RateCheck" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="26" Width="NaN" Grid.Row="0" Grid.Column="0" FontFamily="Malgun Gothic" FontSize="12" FontWeight="Normal"/>
+                            <CheckBox x:Name="RateCheck_YN" Margin="0,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Height="26" Width="NaN" Grid.Row="0" Grid.Column="1" FontFamily="Malgun Gothic" FontSize="12" FontWeight="Normal" />
+                        </Grid>
                         <Label Content="Hotels" Margin="0,30,0,10" Padding="10,5,5,5"  Background="#FF272B2C" Foreground="White" FontWeight="Bold"/>
                         <TextBox x:Name="HotelCodes_TB"  Margin="10,10,10,5" HorizontalAlignment="Stretch" Height="100"  TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontSize="12" Foreground="#FF002F6C" FontWeight="Normal" />                        
-                        <Button x:Name="Start_btn" Content="Start" HorizontalAlignment="Stretch" Height="55" Margin="10,20,10,10" Background="White" BorderBrush="{x:Null}" Foreground="#FF3A3434" FontWeight="Bold" FontFamily="Malgun Gothic" Click="Button_Click" FontSize="12"/>
+                        <Button x:Name="Start_btn" Content="Start" HorizontalAlignment="Stretch" Height="55" Margin="10,20,10,10" Background="White" BorderBrush="{x:Null}" Foreground="#FF3A3434" FontWeight="Bold" FontFamily="Malgun Gothic" Click="Button_Click" FontSize="12"/>                        
                     </StackPanel>
 
                     <StackPanel DockPanel.Dock="Right" HorizontalAlignment="Stretch">                        

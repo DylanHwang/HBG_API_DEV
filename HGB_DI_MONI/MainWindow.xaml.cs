@@ -37,7 +37,7 @@ namespace HGB_DI_MONI
             ApiUrl_TB.Text = endpoint;
             ApiKey_TB.Text = Api_Key;
             Security_TB.Text = Sercurity_Key;            
-            HotelCodes_TB.Text = "170542,182125,187939,212167,1506,1508,1526,1533,1539,1550";
+            HotelCodes_TB.Text = "1067,1070,1075,135813,145214,1506,1508,1526,1533,1539,1550,161032,170542,182125,187939,212167,215417,228671,229318,23476";
             CheckIn.SelectedDate = DateTime.Today;
             CheckOut.SelectedDate = DateTime.Today.AddDays(1);
 
@@ -58,6 +58,7 @@ namespace HGB_DI_MONI
             var Json_RQ = Json_RQ4HotelList().ToString();
             RQ_Json_TB.Text = Json_RQ;
 
+            
 
             change_button_status();
 
@@ -149,7 +150,11 @@ namespace HGB_DI_MONI
                             Console.WriteLine(testi);
 
                             //** Checek Actual Availability Rate:**//
-                            hotelRoom.callBack = await hotelCheckRates(itemObj3["rateKey"].ToString());
+                           if(RateCheck_YN.IsChecked == true)
+                           {
+                                hotelRoom.callBack = await hotelCheckRates(itemObj3["rateKey"].ToString());
+                           }                           
+                            
 
                             Console.WriteLine(testi);
 
@@ -231,8 +236,12 @@ namespace HGB_DI_MONI
             JsonObjectCollection res = new JsonObjectCollection();
            
             JsonObjectCollection stay = new JsonObjectCollection("stay");
-            stay.Add(new JsonStringValue("checkIn", CheckIn.Text));
-            stay.Add(new JsonStringValue("checkOut", CheckOut.Text));
+            
+           // Console.WriteLine(String.Format("{0:yyyy-MM-dd}", Convert.ToDateTime(CheckIn.Text)));
+           // Console.WriteLine(String.Format("{0:yyyy-MM-dd}", Convert.ToDateTime(CheckOut.Text)));
+
+            stay.Add(new JsonStringValue("checkIn", String.Format("{0:yyyy-MM-dd}", Convert.ToDateTime(CheckIn.Text))));
+            stay.Add(new JsonStringValue("checkOut", String.Format("{0:yyyy-MM-dd}", Convert.ToDateTime(CheckOut.Text)))); 
             res.Add(stay);
 
             JsonArrayCollection occupancies = new JsonArrayCollection("occupancies");
