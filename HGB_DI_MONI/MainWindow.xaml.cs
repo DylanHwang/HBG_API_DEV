@@ -188,26 +188,56 @@ namespace HGB_DI_MONI
 
         private async Task<bool> hotelCheckRates(string rateKey)
         {
-            bool check_rst = true;
+            bool check_rst = false;
 
-            HttpConnects h_Conn = new HttpConnects(ApiUrl_TB.Text + "/checkrates", ApiKey_TB.Text, Xsignature);
+            try
+            {                
+                HttpConnects h_Conn = new HttpConnects(ApiUrl_TB.Text + "/checkrates", ApiKey_TB.Text, Xsignature);
 
-            string rq_json = Json_RQ4RateCheck(rateKey).ToString();                
-            Console.WriteLine(rq_json);
+                string rq_json = Json_RQ4RateCheck(rateKey).ToString();
+                Console.WriteLine(rq_json);
 
-            Console.WriteLine(testi);
-            var result =  await h_Conn.searhAllRoomsInHotelS(rq_json);
-            Console.WriteLine(result);
+                Console.WriteLine(testi);
+                var result = await h_Conn.searhAllRoomsInHotelS(rq_json);
+                Console.WriteLine(result);
 
-            if(result.rq_status == false || result.result == null || result.result == "")
+                if (result.rq_status == false || result.result == null || result.result == "")
+                {
+                    check_rst = false;
+                }
+                else
+                {
+                    //check_rst = true;
+                    JObject obj = JObject.Parse(result.result);
+                    if (obj.ContainsKey("hotel") == true)
+                    {
+                        Console.WriteLine(obj.ContainsKey("hotel"));
+
+                        JArray rooms_Jarr = JArray.Parse(obj["hotel"]["rooms"].ToString());
+
+                        foreach (JObject itemObj in rooms_Jarr)
+                        {
+
+                            JArray hotel_rates_Jarr = JArray.Parse(itemObj["rates"].ToString());
+
+                            foreach (JObject itemObj1 in hotel_rates_Jarr)
+                            {
+                                if (itemObj1["rateType"].ToString().Equals("BOOKABLE") == true)
+                                {
+                                    check_rst = true;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+            catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 check_rst = false;
             }
-            else
-            {
-                check_rst = true;
-            }
-
+           
             return check_rst;
         }        
 
