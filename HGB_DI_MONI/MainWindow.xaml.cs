@@ -41,7 +41,8 @@ namespace HGB_DI_MONI
             CheckIn.SelectedDate = DateTime.Today;
             CheckOut.SelectedDate = DateTime.Today.AddDays(1);
 
-            roomNight = CheckOut.SelectedDate.Value.Day - CheckIn.SelectedDate.Value.Day;
+            TimeSpan diff = CheckOut.SelectedDate.Value.Date.Subtract(CheckIn.SelectedDate.Value.Date);
+            roomNight = int.Parse(diff.TotalDays.ToString());
 
             ChildNum_CB.IsEnabled = false;
 
@@ -333,7 +334,7 @@ namespace HGB_DI_MONI
         {
             if(CheckIn.SelectedDate != null)
             {
-                if (CheckIn.SelectedDate > CheckOut.SelectedDate)
+                if (CheckIn.SelectedDate >= CheckOut.SelectedDate)
                 {
                     CheckOut.SelectedDate = CheckIn.SelectedDate.Value.AddDays(roomNight);
                 }
@@ -352,9 +353,9 @@ namespace HGB_DI_MONI
 
             if (CheckOut.SelectedDate != null)
             {
-                if (CheckIn.SelectedDate > CheckOut.SelectedDate)
+                if (CheckIn.SelectedDate >= CheckOut.SelectedDate)
                 {
-                    MessageBoxResult result = MessageBox.Show("Please Check the Check-Out date: Eariy date ...");
+                    MessageBoxResult result = MessageBox.Show("Please Check the Check-Out date: Eariy date ...");                   
                     CheckOut.SelectedDate = CheckIn.SelectedDate.Value.AddDays(roomNight);
                 }
                 else

@@ -120,7 +120,6 @@ C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\bin\Release\Newtonso
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\bin\Release\System.Json.dll
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\bin\Release\System.Net.Json.dll
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\bin\Release\Newtonsoft.Json.xml
-C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Release\HGB_DI_MONI.csprojAssemblyReference.cache
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Release\HGB_DI_MONI.exe.config
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Release\MainWindow.g.cs
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Release\App.g.cs
