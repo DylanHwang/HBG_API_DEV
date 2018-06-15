@@ -28,7 +28,7 @@ namespace HGB_DI_MONI.View
     public partial class ContentAPIView : UserControl
     {
 
-        private string Xsignature = "";        
+        //private string Xsignature = "";        
         const string endpoint = "https://api.hotelbeds.com/hotel-content-api/1.0/";
         private string fields = "hotels?fields=name%2CcountryCode%2CzoneCode%2CdestinationCode%2Ccoordinates%2CchainCode%2CaccommodationTypeCode%2Caddress%2CpostalCode%2Ccity%2Cphones%2CS2C&language=ENG&useSecondaryLanguage=false";
         private string Api_Key = "";
@@ -82,7 +82,7 @@ namespace HGB_DI_MONI.View
             
             statusBar.Content = "Please wait for a Second.... Now We are Communicating with HB API ... -> Get Hotel from " + current_from + " to " + current_to;
 
-            RSResult rsResult = await h_Conn.GetImageContents(current_from, current_to);
+            RSResult rsResult = await h_Conn.GetHotelContents(current_from, current_to);
             //Console.WriteLine(rsResult.result);
 
             if (rsResult.rq_status == true)

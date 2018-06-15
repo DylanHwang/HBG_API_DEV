@@ -79,7 +79,7 @@ namespace HGB_DI_MONI.service
                     var resp =  new StreamReader(e.Response.GetResponseStream()).ReadToEnd();
                     JObject obj = JObject.Parse(resp);
 
-                    //Console.WriteLine("Error:" + obj["error"]["message"].ToString());
+                    Console.WriteLine("Error:" + obj["error"]["message"].ToString());
                     error_msg += "Detail: " + obj["error"]["message"].ToString();
 
                 }
@@ -98,7 +98,7 @@ namespace HGB_DI_MONI.service
             return rsResult;
         }
         
-        public async Task<RSResult> GetImageContents(int from, int to)
+        public async Task<RSResult> GetHotelContents(int from, int to)
         {          
 
     
