@@ -4,21 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HGB_DI_MONI"
+        xmlns:viewmodels="clr-namespace:HGB_DI_MONI.ViewModel"
+        xmlns:views="clr-namespace:HGB_DI_MONI.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="851.71" Width="1275.75" Initialized="Window_Initialized">
-
-
-    <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LastChildFill="True" Height="NaN" Width="NaN"  Margin="0,0,0,0">
-        <Label x:Name="statusBar" DockPanel.Dock="Bottom" Content="Ready ..." Background="#FF4F83CC" Foreground="White"/>        
+    <Window.Resources>
+        <DataTemplate x:Name="ContentApiTemplete" DataType="{x:Type viewmodels:ContentAPIViewModel}" >
+            <views:ContentAPIView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="AvailabilityApiTemplete" DataType="{x:Type viewmodels:AvailabilityAPIViewModel}" >
+            <views:AvailabilityView DataContext="{Binding}"/>
+        </DataTemplate>
+    </Window.Resources>
+    <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LastChildFill="True" Height="NaN" Width="NaN"  Margin="0,0,0,0">        
         <ScrollViewer>
             <Grid>
                 <DockPanel>
-                    <StackPanel DockPanel.Dock="Left" HorizontalAlignment="Left" Width="300" Orientation="Vertical" Height="NaN" VerticalAlignment="Stretch" Background="#FF323A3E">
+                    <StackPanel DockPanel.Dock="Left" HorizontalAlignment="Left" Width="260" Orientation="Vertical" Height="NaN" VerticalAlignment="Stretch" Background="#FF323A3E">
                         <Grid Height="150" HorizontalAlignment="Stretch" Background="#FF272B2C">
                             <StackPanel Margin="10" VerticalAlignment="Center">
                                 <Label Content="HotelBeds" Foreground="White" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" FontSize="20"/>
-                                <Label Content="Dynamic Invetory" Foreground="White" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" FontSize="20"/>
-                                <Label Content="Montoring Solution" Foreground="White" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" FontSize="20"/>
+                                <Label Content="Aptitude" Foreground="White" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" FontSize="20"/>
+                                <Label Content="Testing APP" Foreground="White" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" FontSize="20"/>
                             </StackPanel>
                         </Grid>
                         <Grid Width="NaN" Margin="10,30,15,0">
@@ -36,7 +43,7 @@
                             <TextBox x:Name="Security_TB" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="220" Foreground="#FF4F83CC" BorderBrush="#FF4F83CC" Grid.Column="2" Grid.Row="1" FontSize="12" FontFamily="Malgun Gothic" FontWeight="Normal"/>
                         </Grid>
 
-                        <Label Content="Stay" Margin="0,30,0,10" Padding="10,5,5,5"  Background="#FF272B2C" Foreground="White" FontWeight="Bold"/>
+                        <!--<Label Content="Stay" Margin="0,30,0,10" Padding="10,5,5,5"  Background="#FF272B2C" Foreground="White" FontWeight="Bold"/>
                         <Grid Width="NaN" Margin="10,10,15,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
@@ -92,8 +99,8 @@
                             <ComboBoxItem>2</ComboBoxItem>
                             <ComboBoxItem>3</ComboBoxItem>
                         </ComboBox>
-                        </Grid>
-                        <Grid Width="NaN" Margin="10,10,15,0">
+                        </Grid>-->
+                        <!--<Grid Width="NaN" Margin="10,10,15,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
@@ -106,11 +113,18 @@
                             <CheckBox x:Name="RateCheck_YN" Margin="0,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Height="26" Width="NaN" Grid.Row="0" Grid.Column="1" FontFamily="Malgun Gothic" FontSize="12" FontWeight="Normal" />
                         </Grid>
                         <Label Content="Hotels" Margin="0,30,0,10" Padding="10,5,5,5"  Background="#FF272B2C" Foreground="White" FontWeight="Bold"/>
-                        <TextBox x:Name="HotelCodes_TB"  Margin="10,10,10,5" HorizontalAlignment="Stretch" Height="100"  TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontSize="12" Foreground="#FF002F6C" FontWeight="Normal" />                        
-                        <Button x:Name="Start_btn" Content="Start" HorizontalAlignment="Stretch" Height="55" Margin="10,20,10,10" Background="White" BorderBrush="{x:Null}" Foreground="#FF3A3434" FontWeight="Bold" FontFamily="Malgun Gothic" Click="Button_Click" FontSize="12"/>                        
+                        <TextBox x:Name="HotelCodes_TB"  Margin="10,10,10,5" HorizontalAlignment="Stretch" Height="100"  TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontSize="12" Foreground="#FF002F6C" FontWeight="Normal" />-->
+
+                        <Label Content="Select API Menu" Margin="0,30,0,10" Padding="10,5,5,5"  Background="#FF272B2C" Foreground="White" FontWeight="Bold"/>
+                        <Button x:Name="Content_btn" Content="Contents" HorizontalAlignment="Stretch" Height="55" Margin="10,10,10,5" Background="White" BorderBrush="{x:Null}" Foreground="#FF3A3434" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="12" Click="Content_btn_Click"/>
+                        <Button x:Name="Availability_btn" Content="Availablity" HorizontalAlignment="Stretch" Height="55" Margin="10,5,10,10" Background="White" BorderBrush="{x:Null}" Foreground="#FF3A3434" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="12" Click="Availability_btn_Click"/>                        
+                        <!--<Button x:Name="Start_btn" Content="Start" HorizontalAlignment="Stretch" Height="55" Margin="10,20,10,10" Background="White" BorderBrush="{x:Null}" Foreground="#FF3A3434" FontWeight="Bold" FontFamily="Malgun Gothic" Click="Button_Click" FontSize="12"/>-->                        
                     </StackPanel>
 
-                    <StackPanel DockPanel.Dock="Right" HorizontalAlignment="Stretch">                        
+                    <ContentControl DockPanel.Dock="Right" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="{Binding}" />
+                    
+                    <!--<StackPanel DockPanel.Dock="Right"  HorizontalAlignment="Stretch">
+                        
                         <Grid Margin="10,10,10,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="60"/>
@@ -118,10 +132,7 @@
                             </Grid.ColumnDefinitions>
                             <Label Content="API-URL" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="26" Width="54" Foreground="#FF2C2C2C" FontFamily="Malgun Gothic" FontSize="12" FontWeight="Normal"/>
                             <TextBox x:Name="ApiUrl_TB" Grid.Column="1" HorizontalAlignment="Stretch" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center"  BorderBrush="#FF4F83CC" Foreground="#FF4F83CC" FontSize="12" FontFamily="Malgun Gothic" FontWeight="Normal"/>
-                        </Grid>
-                        <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" >
-                            
-                        </StackPanel>                        
+                        </Grid>                                           
                         <Grid Height="AUTO" VerticalAlignment="Top" Margin="0,0,0,0" HorizontalAlignment="Stretch">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="40"/>
@@ -163,7 +174,7 @@
                                 <TextBox x:Name="RS_Json_TB" HorizontalAlignment="Stretch" Height="NaN"  Margin="10,10,10,10" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" MinHeight="260" MaxHeight="350" FontSize="12" FontWeight="Normal" Foreground="#FF002F6C" />
                             </GroupBox>
                         </Grid>                       
-                    </StackPanel>
+                    </StackPanel>-->
                     
                 </DockPanel>
             </Grid>
