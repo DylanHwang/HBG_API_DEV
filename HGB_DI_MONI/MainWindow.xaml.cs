@@ -39,7 +39,10 @@ namespace HGB_DI_MONI
             //ApiUrl_TB.Text = endpoint;            
             ApiKey_TB.Text = Api_Key;
             Security_TB.Text = Sercurity_Key;
-            DataContext = new AvailabilityAPIViewModel();
+            DataContext = new ContentAPIViewModel();
+
+
+
             //HotelCodes_TB.Text = "1067,1070,1075,135813,145214,1506,1508,1526,1533,1539,1550,161032,170542,182125,187939,212167,215417,228671,229318,23476";
             //CheckIn.SelectedDate = DateTime.Today;
             //CheckOut.SelectedDate = DateTime.Today.AddDays(1);

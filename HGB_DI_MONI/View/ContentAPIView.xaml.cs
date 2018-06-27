@@ -30,7 +30,8 @@ namespace HGB_DI_MONI.View
 
         //private string Xsignature = "";        
         const string endpoint = "https://api.hotelbeds.com/hotel-content-api/1.0/";
-        private string fields = "hotels?fields=name%2CcountryCode%2CzoneCode%2CdestinationCode%2Ccoordinates%2CchainCode%2CaccommodationTypeCode%2Caddress%2CpostalCode%2Ccity%2Cphones%2CS2C&language=ENG&useSecondaryLanguage=false";
+        //private string fields = "hotels?fields=name%2CcountryCode%2CzoneCode%2CdestinationCode%2Ccoordinates%2CchainCode%2CaccommodationTypeCode%2Caddress%2CpostalCode%2Ccity%2Cphones%2CS2C&language=ENG&useSecondaryLanguage=false";
+        private string fields = "";
         private string Api_Key = "";
         //private string Sercurity_Key = "";
         
@@ -42,10 +43,12 @@ namespace HGB_DI_MONI.View
         private int current_to = 0;
         private int total_number = 0;
 
-        private string apiUrl = "";
+        ///private string apiUrl = "";
         
 
         MainWindow mainWindow = null;
+
+        WrapPanel option_wrapPanel;
 
         public ContentAPIView()
         {
@@ -54,9 +57,9 @@ namespace HGB_DI_MONI.View
 
         private void UserControl_Initialized(object sender, EventArgs e)
         {
-            //numberOfData = "&from=" + from + "&to=" + to;            
-            apiUrl = endpoint + fields;                       
-            ApiUrl_TB.Text = apiUrl;
+            //numberOfData = "&from=" + from + "&to=" + to;                                             
+            ApiUrl_TB.Text = endpoint;
+            Extract_btn.IsEnabled = false;
 
             mainWindow = new MainWindow();
         }
@@ -65,6 +68,8 @@ namespace HGB_DI_MONI.View
 
         private async void GetHotel_btn_Click(object sender, RoutedEventArgs e)
         {
+            change_button_status();
+
             string status_barTxt = "";            
 
             hotelContentsList = new List<HotelInformation>();
@@ -72,10 +77,12 @@ namespace HGB_DI_MONI.View
             current_from = from;
             current_to = to;
 
-            //Xsignature = XSignature_Generate();
+            string getApiUrl = ApiUrl_TB.Text + setField4HotelContents();
 
-            //Console.WriteLine(endpoint + fields + numberOfData);
-            HttpConnects h_Conn = new HttpConnects(ApiUrl_TB.Text, mainWindow.ApiKey_TB.Text, mainWindow.Security_TB.Text);
+            //Console.WriteLine(getApiUrl);
+
+
+            HttpConnects h_Conn = new HttpConnects(getApiUrl, mainWindow.ApiKey_TB.Text, mainWindow.Security_TB.Text);
 
             do
             {
@@ -89,7 +96,6 @@ namespace HGB_DI_MONI.View
             {
                 //RS_Json_TB.Text = rsResult.result;
                 await Json_Paring(rsResult.result);
-
                 status_barTxt = "Done: Successfully, Get Hotel from 1  to " + current_to; ;
                 //popup_Txt = "Rate plan checking process has done !!"
                 //MessageBox.Show("Rate plan checking process has done !!");
@@ -115,6 +121,7 @@ namespace HGB_DI_MONI.View
             statusBar.Content = status_barTxt;
             MessageBox.Show(status_barTxt);
 
+            change_button_status();
         }
 
         private async Task Json_Paring(string json)
@@ -139,12 +146,24 @@ namespace HGB_DI_MONI.View
                 {
                     HotelInformation contents = new HotelInformation();
 
-                    contents.code = Convert.ToInt64(itemObj["code"].ToString());
-                    //Console.WriteLine(contents.code);
+                    contents.code = Convert.ToInt64(itemObj["code"].ToString());                    
                     contents.name = itemObj["name"]["content"].ToString();
-                    contents.countryCode = itemObj["countryCode"].ToString();
-                    contents.destinationCode = itemObj["destinationCode"].ToString();
-                    contents.zoneCode = itemObj["zoneCode"].ToString();
+                    
+
+                    if (itemObj.ContainsKey("countryCode") == true)
+                    {
+                        contents.countryCode = itemObj["countryCode"].ToString();
+                    }
+
+                    if (itemObj.ContainsKey("destinationCode") == true)
+                    {
+                        contents.destinationCode = itemObj["destinationCode"].ToString();
+                    }
+
+                    if (itemObj.ContainsKey("zoneCode") == true)
+                    {
+                        contents.zoneCode = itemObj["zoneCode"].ToString();
+                    }
 
                     if (itemObj.ContainsKey("coordinates") == true)
                     {
@@ -157,15 +176,25 @@ namespace HGB_DI_MONI.View
                         contents.chainCode = itemObj["chainCode"].ToString();
                     }
 
-                    contents.accommodationTypeCode = itemObj["accommodationTypeCode"].ToString();
-                    contents.address = itemObj["address"]["content"].ToString();
+                    if (itemObj.ContainsKey("accommodationTypeCode") == true)
+                    {
+                        contents.accommodationTypeCode = itemObj["accommodationTypeCode"].ToString();
+                    }
+
+                    if (itemObj.ContainsKey("address") == true)
+                    {
+                        contents.address = itemObj["address"]["content"].ToString();
+                    }                    
 
                     if (itemObj.ContainsKey("postalCode") == true)
                     {
                         contents.postalCode = itemObj["postalCode"].ToString();
                     }
 
-                    contents.city = itemObj["city"]["content"].ToString();
+                    if (itemObj.ContainsKey("city") == true)
+                    {
+                        contents.city = itemObj["city"]["content"].ToString();
+                    }                    
 
                     if (itemObj.ContainsKey("S2C") == true)
                     {
@@ -206,6 +235,8 @@ namespace HGB_DI_MONI.View
 
         private async void Extract_btn_Click(object sender, RoutedEventArgs e)
         {
+            change_button_status();
+
             string filename = "";
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "CSV (*.csv)|*.csv";
@@ -245,6 +276,7 @@ namespace HGB_DI_MONI.View
 
              
             }
+            change_button_status();
         }
 
         private async Task CreateCSVFromGenericList<T>(List<T> list, string csvNameWithExt)
@@ -301,5 +333,216 @@ namespace HGB_DI_MONI.View
                 }
             }
         }
-    }
+
+        private void change_button_status()
+        {
+            if (GetHotel_btn.IsEnabled)
+            {
+                //GetHotel_btn.Content = "Progress...";
+                GetHotel_btn.IsEnabled = false;
+                Extract_btn.IsEnabled = false;
+            }
+            else
+            {
+                //GetHotel_btn.Content = "Get All Hotel Information";
+                GetHotel_btn.IsEnabled = true;
+                Extract_btn.IsEnabled = true;
+            }
+
+        }
+
+        private void extract_Opt_Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem ComboItem = (ComboBoxItem)extract_Opt_Combo.SelectedItem;
+            string name = ComboItem.Name;
+
+            switch (name)
+            {
+                case "HT":
+                    CreatCheckBox4Column();
+                    break;
+                case "IMG":
+                    extract_Opt_Combo.SelectedIndex = 0;
+                    MessageBox.Show("Image extract function: Comming Soon...");
+                    break;
+                case "HDTL":
+                    extract_Opt_Combo.SelectedIndex = 0;
+                    MessageBox.Show("Hotel Detail Search: Comming Soon...");
+                    break;
+            }
+
+        }
+
+        private void CreatCheckBox4Column()
+        {
+            //ScrollViewer SCView = new ScrollViewer();
+
+            //Grid option_grid = new Grid();
+
+            option_wrapPanel = new WrapPanel();
+            option_wrapPanel.Orientation = Orientation.Horizontal;
+            option_wrapPanel.HorizontalAlignment = HorizontalAlignment.Stretch;
+            option_wrapPanel.Width = double.NaN;
+            option_wrapPanel.Margin = new Thickness(10, 0, 0, 0);                        
+
+            CheckBox chb = new CheckBox();
+            chb.Margin = new Thickness(10, 0, 0, 0);
+            chb.Foreground = new SolidColorBrush(Colors.White);
+            chb.Content = "Code";
+            chb.Name = "Code";
+            chb.IsChecked = true;
+            chb.IsEnabled = false;
+            option_wrapPanel.Children.Add(chb);
+            
+
+            chb = new CheckBox();
+            chb.Margin = new Thickness(10, 0, 0, 0);
+            chb.Foreground = new SolidColorBrush(Colors.White);
+            chb.Content = "Hotel Name";
+            chb.Name = "name";
+            chb.IsChecked = true;
+            chb.IsEnabled = false;
+            option_wrapPanel.Children.Add(chb);
+            
+
+            chb = new CheckBox();
+            chb.Margin = new Thickness(10, 0, 0, 0);
+            chb.Foreground = new SolidColorBrush(Colors.White);
+            chb.Content = "Country Code";
+            chb.Name = "countryCode";
+            chb.IsChecked = true;
+            option_wrapPanel.Children.Add(chb);
+            
+
+            chb = new CheckBox();
+            chb.Margin = new Thickness(10, 0, 0, 0);
+            chb.Foreground = new SolidColorBrush(Colors.White);
+            chb.Content = "Destination Code";
+            chb.Name = "destinationCode";
+            chb.IsChecked = true;
+            option_wrapPanel.Children.Add(chb);
+            
+
+            chb = new CheckBox();
+            chb.Margin = new Thickness(10, 0, 0, 0);
+            chb.Foreground = new SolidColorBrush(Colors.White);
+            chb.Content = "Zone Code";
+            chb.Name = "zoneCode";
+            chb.IsChecked = true;
+            option_wrapPanel.Children.Add(chb);
+            
+
+            chb = new CheckBox();
+            chb.Margin = new Thickness(10, 0, 0, 0);
+            chb.Foreground = new SolidColorBrush(Colors.White);
+            chb.Content = "Coordinates";
+            chb.Name = "coordinates";
+            chb.IsChecked = true;
+            option_wrapPanel.Children.Add(chb);           
+            
+            
+
+            chb = new CheckBox();
+            chb.Margin = new Thickness(10, 0, 0, 0);
+            chb.Foreground = new SolidColorBrush(Colors.White);
+            chb.Content = "ChainCode";
+            chb.Name = "chainCode";
+            chb.IsChecked = true;      
+            option_wrapPanel.Children.Add(chb);
+            
+
+            chb = new CheckBox();
+            chb.Margin = new Thickness(10, 0, 0, 0);
+            chb.Foreground = new SolidColorBrush(Colors.White);
+            chb.Content = "AccommodationTypeCode";
+            chb.Name = "accommodationTypeCode";
+            chb.IsChecked = true;
+            option_wrapPanel.Children.Add(chb);
+            
+
+            chb = new CheckBox();
+            chb.Margin = new Thickness(10, 0, 0, 0);
+            chb.Foreground = new SolidColorBrush(Colors.White);
+            chb.Content = "Address";
+            chb.Name = "address";
+            chb.IsChecked = true;
+            option_wrapPanel.Children.Add(chb);
+            
+
+            chb = new CheckBox();
+            chb.Margin = new Thickness(10, 0, 0, 0);
+            chb.Foreground = new SolidColorBrush(Colors.White);
+            chb.Content = "PostalCode";
+            chb.Name = "postalCode";
+            chb.IsChecked = true;
+            option_wrapPanel.Children.Add(chb);
+
+
+            chb = new CheckBox();
+            chb.Margin = new Thickness(10, 0, 0, 0);
+            chb.Foreground = new SolidColorBrush(Colors.White);
+            chb.Content = "City";
+            chb.Name = "city";
+            chb.IsChecked = true;
+            option_wrapPanel.Children.Add(chb);
+
+            chb = new CheckBox();
+            chb.Margin = new Thickness(10, 0, 0, 0);
+            chb.Foreground = new SolidColorBrush(Colors.White);
+            chb.Content = "PhoneNumber";
+            chb.Name = "phones";
+            chb.IsChecked = true;
+            option_wrapPanel.Children.Add(chb);
+
+            chb = new CheckBox();
+            chb.Margin = new Thickness(10, 0, 0, 0);
+            chb.Foreground = new SolidColorBrush(Colors.White);
+            chb.Content = "S2C";
+            chb.Name = "S2C";
+            chb.IsChecked = true;
+            option_wrapPanel.Children.Add(chb);
+            Option_Grid.Children.Add(option_wrapPanel);            
+
+            Grid.SetRow(option_wrapPanel, 0);
+            Grid.SetColumn(option_wrapPanel, 1);
+
+            //setField4HotelContents();
+
+        }
+
+        
+
+        private string setField4HotelContents()
+        {
+
+            fields = "hotels?fields=";
+
+            for(int i =0; i < option_wrapPanel.Children.Count; i++)
+            {
+                CheckBox obj = (CheckBox) option_wrapPanel.Children[i];
+
+                if ((bool)obj.IsChecked)
+                {
+                    if(i > 0)  // to remove "code" fileds (error occuring)
+                    {
+                        if (i > 1)
+                        {
+                            fields += "%2C";
+                        }
+                        fields += obj.Name;
+                    }                    
+                }
+
+                Console.WriteLine(fields);
+            }
+
+            fields += "&language=ENG&useSecondaryLanguage=false";
+          
+
+            return fields;
+
+        }
+
+
+        }
 }

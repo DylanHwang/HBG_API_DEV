@@ -112,7 +112,7 @@ namespace HGB_DI_MONI.service
         //        {
              string numberOfData = "&from=" + from + "&to=" + to;
 
-           //  Console.WriteLine(apiUrl + numberOfData);
+             Console.WriteLine(apiUrl + numberOfData);
 
              Uri url = new Uri(apiUrl + numberOfData);
              var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
