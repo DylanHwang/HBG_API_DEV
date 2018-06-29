@@ -98,6 +98,7 @@ namespace HGB_DI_MONI.service
             return rsResult;
         }
         
+        // GET Method to GET A Static data for Hotels
         public async Task<RSResult> GetHotelContents(int from, int to)
         {          
 
@@ -186,7 +187,7 @@ namespace HGB_DI_MONI.service
             }
 
             return rsResult;
-        }
+        }                   
 
         public string XSignature_Generate()
         {          

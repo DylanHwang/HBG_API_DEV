@@ -245,6 +245,7 @@ C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Debug\HGB_DI_MON
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Debug\MainWindow.g.cs
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Debug\View\AvailabilityAPIView.g.cs
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Debug\View\ContentAPIView.g.cs
+C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Debug\View\testFunctionView.g.cs
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Debug\App.g.cs
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Debug\HGB_DI_MONI_MarkupCompile.cache
@@ -252,6 +253,7 @@ C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Debug\HGB_DI_MON
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Debug\MainWindow.baml
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Debug\View\AvailabilityAPIView.baml
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Debug\View\ContentAPIView.baml
+C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Debug\View\testFunctionView.baml
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Debug\HGB_DI_MONI.g.resources
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Debug\HGB_DI_MONI.Properties.Resources.resources
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Debug\HGB_DI_MONI.csproj.GenerateResource.cache

@@ -36,7 +36,6 @@ C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Release\HGB_DI_M
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Release\HGB_DI_MONI.csproj.CopyComplete
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Release\HGB_DI_MONI.exe
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Release\HGB_DI_MONI.pdb
-C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Release\HGB_DI_MONI.csprojAssemblyReference.cache
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\bin\Release\Microsoft.Win32.Primitives.dll
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\bin\Release\netstandard.dll
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\bin\Release\System.AppContext.dll
@@ -139,3 +138,5 @@ C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Release\View\Con
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Release\GeneratedInternalTypeHelper.g.cs
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Release\View\AvailabilityAPIView.baml
 C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Release\View\ContentAPIView.baml
+C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Release\View\testFunctionView.g.cs
+C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Release\View\testFunctionView.baml

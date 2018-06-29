@@ -57,16 +57,19 @@
                     <DataGrid.Columns >
                         <DataGridTextColumn Binding="{Binding code}" Header="Code" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding name}" Header="Name" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding isGnD}" Header="isGnD" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding countryCode}" Header="countryCode" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding countryName}" Header="countryName" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding destinationCode}" Header="destinationCode" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding destinationName}" Header="destinationName" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding zoneCode}" Header="zoneCode" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding city}" Header="city" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding longitude}" Header="longitude" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding latitude}" Header="latitude" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding chainCode}" Header="chainCode" IsReadOnly="True" Width="*"/>
                         <DataGridTextColumn Binding="{Binding accommodationTypeCode}" Header="accommodationTypeCode" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding address}" Header="address" IsReadOnly="True"/>
-                        <DataGridTextColumn Binding="{Binding postalCode}" Header="postalCode" IsReadOnly="True"/>
-                        <DataGridTextColumn Binding="{Binding city}" Header="city" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding postalCode}" Header="postalCode" IsReadOnly="True"/>                        
                         <DataGridTextColumn Binding="{Binding phoneNumber}" Header="phoneNumber" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding S2C}" Header="S2C" IsReadOnly="True"/>
                     </DataGrid.Columns>

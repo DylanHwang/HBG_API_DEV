@@ -64,16 +64,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="domain\CountryDesc.cs" />
+    <Compile Include="domain\DestinationDesc.cs" />
     <Compile Include="domain\HotelInformation.cs" />
+    <Compile Include="domain\RoomDesc.cs" />
+    <Compile Include="domain\RoomImage.cs" />
     <Compile Include="domain\RSResult.cs" />
     <Compile Include="service\HttpConnects.cs" />
     <Compile Include="ViewModel\AvailabilityAPIViewModel.cs" />
     <Compile Include="ViewModel\ContentAPIViewModel.cs" />
+    <Compile Include="ViewModel\testFunctionViewModel.cs" />
     <Compile Include="View\AvailabilityAPIView.xaml.cs">
       <DependentUpon>AvailabilityAPIView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ContentAPIView.xaml.cs">
       <DependentUpon>ContentAPIView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\testFunctionView.xaml.cs">
+      <DependentUpon>testFunctionView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -96,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ContentAPIView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\testFunctionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -127,6 +139,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="CSVfiles\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
