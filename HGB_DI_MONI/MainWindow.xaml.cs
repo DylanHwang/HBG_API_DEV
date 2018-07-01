@@ -22,8 +22,8 @@ namespace HGB_DI_MONI
 
         //private string Xsignature = "";
         const string endpoint = "https://api.test.hotelbeds.com/hotel-api/1.0";
-        private string Api_Key = "a3uedpcasamauy4hbp4tu78a";
-        private string Sercurity_Key = "APMwG3nazN";
+        private string Api_Key = "766sm2mjnvtwct5gkhs7z4g8";
+        private string Sercurity_Key = "duYZZUp9eX";
         //private int roomNight = 0;
 
         //List<HotelRooms> hotelRommsContionList;
@@ -39,7 +39,10 @@ namespace HGB_DI_MONI
             //ApiUrl_TB.Text = endpoint;            
             ApiKey_TB.Text = Api_Key;
             Security_TB.Text = Sercurity_Key;
-            DataContext = new AvailabilityAPIViewModel();
+            DataContext = new ContentAPIViewModel();
+
+
+
             //HotelCodes_TB.Text = "1067,1070,1075,135813,145214,1506,1508,1526,1533,1539,1550,161032,170542,182125,187939,212167,215417,228671,229318,23476";
             //CheckIn.SelectedDate = DateTime.Today;
             //CheckOut.SelectedDate = DateTime.Today.AddDays(1);
@@ -383,6 +386,12 @@ namespace HGB_DI_MONI
         private void Content_btn_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new ContentAPIViewModel();
-        }        
+        }
+
+        private void test_btn_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new testFunctionViewModel();
+        }
     }
+
 }

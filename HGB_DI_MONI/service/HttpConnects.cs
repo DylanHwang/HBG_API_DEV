@@ -79,7 +79,7 @@ namespace HGB_DI_MONI.service
                     var resp =  new StreamReader(e.Response.GetResponseStream()).ReadToEnd();
                     JObject obj = JObject.Parse(resp);
 
-                    //Console.WriteLine("Error:" + obj["error"]["message"].ToString());
+                    Console.WriteLine("Error:" + obj["error"]["message"].ToString());
                     error_msg += "Detail: " + obj["error"]["message"].ToString();
 
                 }
@@ -98,7 +98,8 @@ namespace HGB_DI_MONI.service
             return rsResult;
         }
         
-        public async Task<RSResult> GetImageContents(int from, int to)
+        // GET Method to GET A Static data for Hotels
+        public async Task<RSResult> GetHotelContents(int from, int to)
         {          
 
     
@@ -112,7 +113,7 @@ namespace HGB_DI_MONI.service
         //        {
              string numberOfData = "&from=" + from + "&to=" + to;
 
-           //  Console.WriteLine(apiUrl + numberOfData);
+             Console.WriteLine(apiUrl + numberOfData);
 
              Uri url = new Uri(apiUrl + numberOfData);
              var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
@@ -186,7 +187,7 @@ namespace HGB_DI_MONI.service
             }
 
             return rsResult;
-        }
+        }                   
 
         public string XSignature_Generate()
         {          

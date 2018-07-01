@@ -202,22 +202,24 @@ namespace HGB_DI_MONI.View
 
             try
             {
-                HttpConnects h_Conn = new HttpConnects(ApiUrl_TB.Text + "/checkrates", mainWindow.ApiKey_TB.Text, Xsignature);
+                HttpConnects h_Conn = new HttpConnects(ApiUrl_TB.Text + "/checkrates", mainWindow.ApiKey_TB.Text, mainWindow.Security_TB.Text);
 
                 string rq_json = Json_RQ4RateCheck(rateKey).ToString();
                 Console.WriteLine(rq_json);
 
                 Console.WriteLine(testi);
                 var result = await h_Conn.searhAllRoomsInHotelS(rq_json);
-                Console.WriteLine(result);
+                
 
                 if (result.rq_status == false || result.result == null || result.result == "")
                 {
                     check_rst = false;
+                    Console.WriteLine("error check --> " +result);
                 }
                 else
                 {
                     //check_rst = true;
+                    Console.WriteLine("ok check --> " + result);
                     JObject obj = JObject.Parse(result.result);
                     if (obj.ContainsKey("hotel") == true)
                     {

@@ -19,6 +19,19 @@
                     <Button x:Name="Extract_btn" Content="Extract CVS File" Grid.Row="0" Margin="10,0,0,0" Grid.Column="1" HorizontalAlignment="Stretch" Background="White" BorderBrush="{x:Null}" Foreground="#FF3A3434" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="12" Click="Extract_btn_Click" />                    
                 </Grid>
             </Grid>
+            <Grid Background="#FF323A3E">
+                <Grid x:Name="Option_Grid" Margin="10,10,10,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox x:Name="extract_Opt_Combo" Grid.Row="0" Grid.Column="0" SelectionChanged="extract_Opt_Combo_SelectionChanged">
+                        <ComboBoxItem Content = "Hotel Static Data" Name="HT"  IsSelected="true" />
+                        <ComboBoxItem Content = "Hotel Images"  Name="IMG" />
+                        <ComboBoxItem Content = "Hotel Detail (1 hotel)" Name="HDTL" />
+                    </ComboBox>                    
+                </Grid>
+            </Grid>
             <!--<Grid Background="#FF272B2C" Height="25">
                     <Grid>
                         <Label Content="Hotel Code List" Margin="5,0,10,0"  Background="#FF272B2C" Foreground="White" FontWeight="Bold"/>                       
@@ -44,16 +57,19 @@
                     <DataGrid.Columns >
                         <DataGridTextColumn Binding="{Binding code}" Header="Code" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding name}" Header="Name" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding isGnD}" Header="isGnD" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding countryCode}" Header="countryCode" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding countryName}" Header="countryName" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding destinationCode}" Header="destinationCode" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding destinationName}" Header="destinationName" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding zoneCode}" Header="zoneCode" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding city}" Header="city" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding longitude}" Header="longitude" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding latitude}" Header="latitude" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding chainCode}" Header="chainCode" IsReadOnly="True" Width="*"/>
                         <DataGridTextColumn Binding="{Binding accommodationTypeCode}" Header="accommodationTypeCode" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding address}" Header="address" IsReadOnly="True"/>
-                        <DataGridTextColumn Binding="{Binding postalCode}" Header="postalCode" IsReadOnly="True"/>
-                        <DataGridTextColumn Binding="{Binding city}" Header="city" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding postalCode}" Header="postalCode" IsReadOnly="True"/>                        
                         <DataGridTextColumn Binding="{Binding phoneNumber}" Header="phoneNumber" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding S2C}" Header="S2C" IsReadOnly="True"/>
                     </DataGrid.Columns>
