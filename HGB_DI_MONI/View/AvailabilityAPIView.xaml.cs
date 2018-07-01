@@ -1,5 +1,6 @@
 ﻿using HGB_DI_MONI.domain;
 using HGB_DI_MONI.service;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -76,7 +77,7 @@ namespace HGB_DI_MONI.View
 
             if (rsResult.rq_status == true)
             {
-                RS_Json_TB.Text = rsResult.result;
+                RS_Json_TB.Text = JValue.Parse(rsResult.result).ToString(Formatting.Indented);                           
                 hotelRommsContionList = await Json_Paring(rsResult.result);
                 hbHotelRoom_Grid.ItemsSource = hotelRommsContionList;
                 statusBar.Content = "Done: Checking Successfully";                
@@ -117,6 +118,8 @@ namespace HGB_DI_MONI.View
             total_checking_rooms = 0;
 
             JObject obj = JObject.Parse(json);
+
+           // Console.WriteLine(obj.ToString());
 
             List<HotelRooms> hotelRomms = new List<HotelRooms>();
 
@@ -175,7 +178,24 @@ namespace HGB_DI_MONI.View
                                 hotelRoom.sellingRate = itemObj3["sellingRate"].ToString();
                             }
 
+
+                            if (itemObj.ContainsKey("exclusiveDeal") == true)
+                            {
+                                if (Convert.ToInt64(itemObj["exclusiveDeal"].ToString()) == 1)
+                                {
+                                    hotelRoom.GnD = "Y";
+                                }
+                                else
+                                {
+                                    hotelRoom.GnD = "N";
+                                }
+                                
+                            }
+
                             hotelRoom.packaging = bool.Parse(itemObj3["packaging"].ToString());
+
+
+
 
                             hotelRomms.Add(hotelRoom);
 
@@ -253,34 +273,12 @@ namespace HGB_DI_MONI.View
             return check_rst;
         }
 
-        //public string XSignature_Generate()
-        //{
-        //    Api_Key = mainWindow.ApiKey_TB.Text;
-        //    Sercurity_Key = mainWindow.Security_TB.Text;
-
-        //     Compute the signature to be used in the API call (combined key + secret + timestamp in seconds)
-        //    string signature;
-        //    using (var sha = SHA256.Create())
-        //    {
-        //        long ts = (long)(DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds / 1000;
-        //        Console.WriteLine("Timestamp: " + ts);
-        //        var computedHash = sha.ComputeHash(Encoding.UTF8.GetBytes(Api_Key + Sercurity_Key + ts));
-        //        signature = BitConverter.ToString(computedHash).Replace("-", "");
-        //    }
-
-        //    Xsignature = signature;
-        //    return signature;
-        //}
-
 
         public object Json_RQ4HotelList()
         {
             JsonObjectCollection res = new JsonObjectCollection();
 
-            JsonObjectCollection stay = new JsonObjectCollection("stay");
-
-            // Console.WriteLine(String.Format("{0:yyyy-MM-dd}", Convert.ToDateTime(CheckIn.Text)));
-            // Console.WriteLine(String.Format("{0:yyyy-MM-dd}", Convert.ToDateTime(CheckOut.Text)));
+            JsonObjectCollection stay = new JsonObjectCollection("stay");         
 
             stay.Add(new JsonStringValue("checkIn", String.Format("{0:yyyy-MM-dd}", Convert.ToDateTime(CheckIn.Text))));
             stay.Add(new JsonStringValue("checkOut", String.Format("{0:yyyy-MM-dd}", Convert.ToDateTime(CheckOut.Text))));
@@ -312,12 +310,10 @@ namespace HGB_DI_MONI.View
 
 
             foreach (string hotel_code in hotel_codes)
-            {
-
-                //    Console.WriteLine(hotel_code);
+            {              
                 hotel.Add(new JsonNumericValue(null, int.Parse(hotel_code)));
             }
-            //hotel.Add(new JsonNumericValue(null, 23476));
+         
 
             hotels.Add(hotel);
             res.Add(hotels);

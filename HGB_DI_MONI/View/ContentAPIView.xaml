@@ -53,8 +53,8 @@
                 <Label Content="Result Grid" Margin="10,10,10,5" Background="#FF22AABD" Foreground="White" FontWeight="Bold"/>
                 <DataGrid x:Name="hbHotelRoom_Grid" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" 
                       Margin="10,10,10,10" Width="NaN"  Height="600"
-                      AutoGenerateColumns="False" GridLinesVisibility="Horizontal"  SelectionUnit="Cell" SelectionMode="Extended">
-                    <DataGrid.Columns >
+                      AutoGenerateColumns="True" GridLinesVisibility="Horizontal"  SelectionUnit="Cell" SelectionMode="Extended">
+                    <!--<DataGrid.Columns >
                         <DataGridTextColumn Binding="{Binding code}" Header="Code" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding name}" Header="Name" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding isGnD}" Header="isGnD" IsReadOnly="True"/>
@@ -72,7 +72,7 @@
                         <DataGridTextColumn Binding="{Binding postalCode}" Header="postalCode" IsReadOnly="True"/>                        
                         <DataGridTextColumn Binding="{Binding phoneNumber}" Header="phoneNumber" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding S2C}" Header="S2C" IsReadOnly="True"/>
-                    </DataGrid.Columns>
+                    </DataGrid.Columns>-->
                 </DataGrid>
             </Grid>
         </StackPanel>

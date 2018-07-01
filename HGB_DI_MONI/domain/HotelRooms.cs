@@ -18,6 +18,7 @@ namespace HGB_DI_MONI.domain
         public string room_name { get; set; }        
         public string net { get; set; }
         public string sellingRate { get; set; }
+        public string GnD { get; set; }
         public bool packaging { get; set; }
         public String checkIn { get; set; }
         public String checkOut { get; set; }

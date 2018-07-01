@@ -91,6 +91,7 @@
                             <DataGridTextColumn Binding="{Binding room_name}" Header="room_name" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding net}" Header="Net" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding sellingRate}" Header="sellingRate" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding GnD}" Header="GnD" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding rateKey}" Header="rateKey" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Binding="{Binding rateType}" Header="rateType" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding hotel_destinationName}" Header="Destination" IsReadOnly="True"/>

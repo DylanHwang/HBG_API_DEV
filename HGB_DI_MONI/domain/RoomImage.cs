@@ -11,7 +11,9 @@ namespace HGB_DI_MONI.domain
         public long hotel_code { get; set; }
         public string hotel_name { get; set; }
         public string hotel_countryCode { get; set; }
+        public string hotel_countryName { get; set; }
         public string hotel_destinationCode { get; set; }
+        public string hotel_destinationName { get; set; }
         public long imageOrder { get; set; }
         public string imageTypeCode { get; set; }
         public string imageroomCode { get; set; }        
