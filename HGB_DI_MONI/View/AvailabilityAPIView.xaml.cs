@@ -42,7 +42,7 @@ namespace HGB_DI_MONI.View
 
         private void UserControl_Initialized(object sender, EventArgs e)
         {
-            mainWindow = new MainWindow();
+            mainWindow = ((MainWindow)Application.Current.MainWindow);
             ApiUrl_TB.Text = endpoint;
             //ApiKey_TB.Text = Api_Key;
             //Security_TB.Text = Sercurity_Key;
@@ -61,9 +61,7 @@ namespace HGB_DI_MONI.View
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
 
-
             //Xsignature = XSignature_Generate();
-
             HttpConnects h_Conn = new HttpConnects(ApiUrl_TB.Text + "/hotels", mainWindow.ApiKey_TB.Text, mainWindow.Security_TB.Text);
 
             var Json_RQ = Json_RQ4HotelList().ToString();

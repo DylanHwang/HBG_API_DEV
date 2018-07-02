@@ -57,7 +57,7 @@ namespace HGB_DI_MONI.View
             ApiUrl_TB.Text = endpoint;
             Extract_btn.IsEnabled = false;
 
-            mainWindow = new MainWindow();
+            mainWindow = ((MainWindow)Application.Current.MainWindow);
         }
 
         List<HotelInformation> hotelContentsList;
@@ -165,8 +165,6 @@ namespace HGB_DI_MONI.View
         {
             try
             {
-
-
                 JObject obj = JObject.Parse(json);
 
 

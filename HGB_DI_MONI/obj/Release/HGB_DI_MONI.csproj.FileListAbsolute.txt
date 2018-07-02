@@ -263,3 +263,4 @@ C:\Users\hdg89\Source\Repos\HBG_API_DEV\HGB_DI_MONI\obj\Release\HGB_DI_MONI.cspr
 C:\Users\hdg89\Source\Repos\HBG_API_DEV\HGB_DI_MONI\obj\Release\HGB_DI_MONI.exe
 C:\Users\hdg89\Source\Repos\HBG_API_DEV\HGB_DI_MONI\obj\Release\HGB_DI_MONI.pdb
 C:\Users\hdg89\Source\Repos\HBG_API_DEV\HGB_DI_MONI\bin\Release\HGB_DI_MONI.pdb
+C:\Dylan_WorkSpapce\11. Develop_api\HGB_DI_MONI\HGB_DI_MONI\obj\Release\HGB_DI_MONI.csprojAssemblyReference.cache
