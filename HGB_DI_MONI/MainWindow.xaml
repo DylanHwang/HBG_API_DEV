@@ -48,7 +48,7 @@
                         <Label Content="Select API Menu" Margin="0,30,0,10" Padding="10,5,5,5"  Background="#FF272B2C" Foreground="White" FontWeight="Bold"/>
                         <Button x:Name="Content_btn" Content="Contents" HorizontalAlignment="Stretch" Height="55" Margin="10,10,10,5" Background="White" BorderBrush="{x:Null}" Foreground="#FF3A3434" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="12" Click="Content_btn_Click"/>
                         <Button x:Name="Availability_btn" Content="Availablity" HorizontalAlignment="Stretch" Height="55" Margin="10,5,10,10" Background="White" BorderBrush="{x:Null}" Foreground="#FF3A3434" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="12" Click="Availability_btn_Click"/>
-                        <Button x:Name="test_btn" Content="testPage" IsEnabled="False" HorizontalAlignment="Stretch" Height="55" Margin="10,5,10,10" Background="White" BorderBrush="{x:Null}" Foreground="#FF3A3434" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="12" Click="test_btn_Click"/>
+                        <Button x:Name="test_btn" Content="TestFunction" IsEnabled="False" HorizontalAlignment="Stretch" Height="55" Margin="10,5,10,10" Background="White" BorderBrush="{x:Null}" Foreground="#FF3A3434" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="12" Click="test_btn_Click"/>
                     </StackPanel>
 
                     <ContentControl DockPanel.Dock="Right" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Content="{Binding}" />

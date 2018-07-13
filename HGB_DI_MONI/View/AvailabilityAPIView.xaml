@@ -89,11 +89,13 @@
                             <DataGridTextColumn Binding="{Binding checkIn}" Header="Check-In" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding checkOut}" Header="Check-Out" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding room_name}" Header="room_name" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding net}" Header="Net" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding sellingRate}" Header="sellingRate" IsReadOnly="True"/>
-                        <DataGridTextColumn Binding="{Binding GnD}" Header="GnD" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding rateKey}" Header="rateKey" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding rateKey}" Header="rateKey" IsReadOnly="True" Width="400"/>
                             <DataGridTextColumn Binding="{Binding rateType}" Header="rateType" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding rateClass}" Header="rateClass" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding boardName}" Header="boardName" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding net}" Header="Net" IsReadOnly="True"/>                            
+                            <DataGridTextColumn Binding="{Binding sellingRate}" Header="sellingRate" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding GnD}" Header="GnD" IsReadOnly="True"/>                            
                             <DataGridTextColumn Binding="{Binding hotel_destinationName}" Header="Destination" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding hotel_zoneName}" Header="zoneName" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding packaging}" Header="packaging" IsReadOnly="True"/>

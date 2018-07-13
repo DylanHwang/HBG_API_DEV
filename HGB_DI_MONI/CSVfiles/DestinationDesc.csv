@@ -1640,6 +1640,7 @@ BHX|Birmingham|UK|11|Birmingham Airport|
 BHY|Beihai|CN|1|Haicheng District|
 BHY|Beihai|CN|2|Yinhai District|
 BHZ|Belo Horizonte|BR|1|Belo Horizonte|
+BHZ|Belo Horizonte|BR|3|Ouro Preto|
 BHZ|Belo Horizonte|BR|4|Nova Lima|
 BHZ|Belo Horizonte|BR|5|Sabara|
 BHZ|Belo Horizonte|BR|6|Santa Luzia|
@@ -6082,6 +6083,7 @@ HMT|Hermitage - TN|US|1|Hermitage|
 HMU|Humphreys - TN|US|1|Hurricane Mills|
 HN0|Henan|CN|1|Anyang|
 HN1|Hamilton - MT|US|1|Rocky Mountain Region|
+HNA|Hanzhong|CN|1|Hanzhong city|
 HNC|Channahon - IL|US|1|Minooka|
 HNE|Hengshui|CN|2|Hengshui city|
 HNI|Hornindal|NO|1|Hornindal|
@@ -6499,7 +6501,6 @@ IHM|Italian Alps|IT|46|Molveno|
 IHM|Italian Alps|IT|47|Zoldo Alto|
 IHM|Italian Alps|IT|48|Rocca Pietore|
 IHM|Italian Alps|IT|49|Malga Ciapela|
-IHM|Italian Alps|IT|50|Sondalo|
 IHT|Hitachinaka|JP|1|Hitachinaka city|
 III|Cachoeiro De Itapemirim|BR|1|Cachoeiro De Itapemirim|
 IIQ|Coihaique|CL|1|Coyhaique|
@@ -7054,7 +7055,6 @@ KAB|Lake Kariba|ZW|1|Kariba|
 KAC|Kachchh|IN|1|Kandla|
 KAD|Kadoma|ZW|1|Kadoma|
 KAE|Hawaii - Oahu - HI|US|1|Turtle Bay (North Shore)|
-KAE|Hawaii - Oahu - HI|US|2|Waikiki Beach|
 KAE|Hawaii - Oahu - HI|US|4|Waikiki Beach / Honolulu|
 KAE|Hawaii - Oahu - HI|US|5|Ko Olina|
 KAE|Hawaii - Oahu - HI|US|8|Laie|
@@ -7257,7 +7257,6 @@ KIX|Kyoto|JP|3|Ine|
 KIX|Kyoto|JP|4|Miyazu|
 KJ1|Kranj|SI|1|Kranj|
 KJ1|Kranj|SI|2|Cerklje na Gorenjskem|
-KK0|Chalkidiki|GR|1|Psakoudia|
 KK1|Kumarakom|IN|1|Kumarakom|
 KK2|Kamikawa|JP|1|Kamikawa|
 KK2|Kamikawa|JP|2|Sounkyo|
@@ -10626,6 +10625,7 @@ OT|Ottawa|CA|5|Cornwall|
 OT|Ottawa|CA|7|Perth|
 OT|Ottawa|CA|9|Orleans|
 OT|Ottawa|CA|10|Casselman|
+OT|Ottawa|CA|11|OTTAWA AIRPORT AREA|
 OT1|Otaru|JP|1|Otaru|
 OTB|Bortala|CN|1|Bole|
 OTH|South Oregon Coast - OR|US|1|Coos Bay|
@@ -11094,6 +11094,7 @@ PEL|Peloponesse|GR|24|Mistras|
 PEL|Peloponesse|GR|25|Mani|
 PEL|Peloponesse|GR|26|Pyrgos|
 PEL|Peloponesse|GR|28|Tripoli|
+PEL|Peloponesse|GR|30|Neapoli|
 PEL|Peloponesse|GR|31|kastro Kyllinis|
 PEL|Peloponesse|GR|32|Xylokastro|
 PEL|Peloponesse|GR|33|Aigio|
@@ -11785,6 +11786,7 @@ PVR|Puerto Vallarta|MX|8|Cruz de Huanacaxtle|
 PVR|Puerto Vallarta|MX|9|Quemaro|
 PVR|Puerto Vallarta|MX|10|Zona Hotelera|
 PVR|Puerto Vallarta|MX|11|Sayulita|
+PVR|Puerto Vallarta|MX|12|Quimixto|
 PVR|Puerto Vallarta|MX|18|Aeropuerto|
 PVR|Puerto Vallarta|MX|20|Nuevo Vallarta / Riviera Nayarit|
 PVR|Puerto Vallarta|MX|30|Punta de Mita|
@@ -11869,6 +11871,7 @@ QCM|Como|IT|12|Cernobbio|
 QCM|Como|IT|13|Schignano|
 QCM|Como|IT|15|Lomazzo|
 QCM|Como|IT|16|Tremezzo|
+QCM|Como|IT|17|ALBAVILLA|
 QES|Qeshm island|IR|1|Qeshm|
 QEU|Quetta|PK|1|Quetta city|
 QFB|Freiburg|DE|1|Freiburg City|
@@ -13678,6 +13681,7 @@ SVL|Savonlinna|FI|1|Savonlinna|
 SVN|Savona|IT|1|Savona|
 SVN|Savona|IT|2|Varazze|
 SVN|Savona|IT|3|ALASSIO|
+SVN|Savona|IT|4|LOANO|
 SVO|Svolvaer|NO|1|Svolvaer|
 SVQ|Seville|ES|1|Écija|
 SVQ|Seville|ES|2|Sanlúcar la Mayor|

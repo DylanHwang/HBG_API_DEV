@@ -69,6 +69,8 @@
     <Compile Include="domain\CountryDesc.cs" />
     <Compile Include="domain\DestinationDesc.cs" />
     <Compile Include="domain\HotelInformation.cs" />
+    <Compile Include="domain\HotelRoomTypeInfo.cs" />
+    <Compile Include="domain\HotelWildCards.cs" />
     <Compile Include="domain\RoomDesc.cs" />
     <Compile Include="domain\RoomImage.cs" />
     <Compile Include="domain\RSResult.cs" />
@@ -143,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CSVfiles\" />
+    <Folder Include="View\CSVfiles\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

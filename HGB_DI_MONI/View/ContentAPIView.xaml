@@ -23,12 +23,21 @@
                 <Grid x:Name="Option_Grid" Margin="10,10,10,10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="150"/>
                         <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <ComboBox x:Name="extract_Opt_Combo" Grid.Row="0" Grid.Column="0" SelectionChanged="extract_Opt_Combo_SelectionChanged">
+                    </Grid.ColumnDefinitions>                    
+                    <ComboBox Width="100" x:Name="country_Combo"  Grid.Row="0" Grid.Column="0" ItemsSource="{Binding Countries}" DisplayMemberPath="country_description" SelectedValuePath="country_code" IsEditable="True">
+                        <ComboBox.Style>
+                            <Style>
+                                <EventSetter Event="TextBox.TextChanged" Handler="TextBox_TextChanged" />
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+                    <ComboBox x:Name="extract_Opt_Combo" Grid.Row="0" Grid.Column="1" SelectionChanged="extract_Opt_Combo_SelectionChanged">
                         <ComboBoxItem Content = "Hotel Static Data" Name="HT"  IsSelected="true" />
                         <ComboBoxItem Content = "Hotel Images"  Name="IMG" />
-                        <ComboBoxItem Content = "Hotel Detail (1 hotel)" Name="HDTL" />
+                        <ComboBoxItem Content = "WildCard" Name="WILD" />
+                        <ComboBoxItem Content = "Hotel Room Data" Name="HTROOM" />
                     </ComboBox>                    
                 </Grid>
             </Grid>

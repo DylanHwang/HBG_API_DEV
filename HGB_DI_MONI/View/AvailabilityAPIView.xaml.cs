@@ -156,6 +156,9 @@ namespace HGB_DI_MONI.View
                             hotelRoom.room_name = itemObj2["name"].ToString();
                             hotelRoom.rateKey = itemObj3["rateKey"].ToString();
                             hotelRoom.rateType = itemObj3["rateType"].ToString();
+                            hotelRoom.rateClass = itemObj3["rateClass"].ToString();
+                            hotelRoom.boardName = itemObj3["boardName"].ToString();
+
 
 
                             Console.WriteLine(testi);
