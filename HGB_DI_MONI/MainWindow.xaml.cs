@@ -52,6 +52,11 @@ namespace HGB_DI_MONI
             DataContext = new AvailabilityAPIViewModel();
         }
 
+        private void BookingDetail_btn_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new BookingDetailsViewModel();
+        }
+
         private void Content_btn_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new ContentAPIViewModel();

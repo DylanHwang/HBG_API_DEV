@@ -76,10 +76,14 @@
     <Compile Include="domain\RSResult.cs" />
     <Compile Include="service\HttpConnects.cs" />
     <Compile Include="ViewModel\AvailabilityAPIViewModel.cs" />
+    <Compile Include="ViewModel\BookingDetailsViewModel.cs" />
     <Compile Include="ViewModel\ContentAPIViewModel.cs" />
     <Compile Include="ViewModel\testFunctionViewModel.cs" />
     <Compile Include="View\AvailabilityAPIView.xaml.cs">
       <DependentUpon>AvailabilityAPIView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BookingDetailsView.xaml.cs">
+      <DependentUpon>BookingDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ContentAPIView.xaml.cs">
       <DependentUpon>ContentAPIView.xaml</DependentUpon>
@@ -104,6 +108,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\AvailabilityAPIView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BookingDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

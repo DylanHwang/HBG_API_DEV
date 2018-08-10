@@ -15,6 +15,9 @@
         <DataTemplate x:Name="AvailabilityApiTemplete" DataType="{x:Type viewmodels:AvailabilityAPIViewModel}" >
             <views:AvailabilityView DataContext="{Binding}"/>
         </DataTemplate>
+        <DataTemplate x:Name="BookingDetailsTemplete" DataType="{x:Type viewmodels:BookingDetailsViewModel}" >
+            <views:BookingDetailsView DataContext="{Binding}"/>
+        </DataTemplate>
         <DataTemplate x:Name="testFunctionTemplete" DataType="{x:Type viewmodels:testFunctionViewModel}" >
             <views:testFunctionView DataContext="{Binding}"/>
         </DataTemplate>
@@ -48,6 +51,7 @@
                         <Label Content="Select API Menu" Margin="0,30,0,10" Padding="10,5,5,5"  Background="#FF272B2C" Foreground="White" FontWeight="Bold"/>
                         <Button x:Name="Content_btn" Content="Contents" HorizontalAlignment="Stretch" Height="55" Margin="10,10,10,5" Background="White" BorderBrush="{x:Null}" Foreground="#FF3A3434" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="12" Click="Content_btn_Click"/>
                         <Button x:Name="Availability_btn" Content="Availablity" HorizontalAlignment="Stretch" Height="55" Margin="10,5,10,10" Background="White" BorderBrush="{x:Null}" Foreground="#FF3A3434" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="12" Click="Availability_btn_Click"/>
+                        <Button x:Name="BookingDetail_btn" Content="BookingDetail" HorizontalAlignment="Stretch" Height="55" Margin="10,5,10,10" Background="White" BorderBrush="{x:Null}" Foreground="#FF3A3434" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="12" Click="BookingDetail_btn_Click"/>
                         <Button x:Name="test_btn" Content="TestFunction" IsEnabled="False" HorizontalAlignment="Stretch" Height="55" Margin="10,5,10,10" Background="White" BorderBrush="{x:Null}" Foreground="#FF3A3434" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="12" Click="test_btn_Click"/>
                     </StackPanel>
 

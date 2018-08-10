@@ -187,7 +187,73 @@ namespace HGB_DI_MONI.service
             }
 
             return rsResult;
-        }                   
+        }
+
+
+        // GET Method to GET A Static data for Hotels
+        public async Task<RSResult> GetBookingDetail()
+        {
+            RSResult rsResult = new RSResult();
+
+            try
+            {
+                
+
+                Console.WriteLine(apiUrl);
+
+                Uri url = new Uri(apiUrl);
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Accept = "application/json";
+                httpWebRequest.Method = WebRequestMethods.Http.Get;
+                httpWebRequest.Headers["Api-key"] = apiKey;
+                httpWebRequest.Headers["X-Signature"] = XSignature_Generate();
+                httpWebRequest.Timeout = 100000;
+
+                var response = await httpWebRequest.GetResponseAsync();
+                Stream responseStream = response.GetResponseStream();
+                StreamReader streamReader = new StreamReader(responseStream, Encoding.UTF8);
+                
+
+                rsResult.result = streamReader.ReadToEnd();
+                rsResult.rq_status = true;
+
+                streamReader.Close();
+                responseStream.Close();
+                response.Close();             
+
+            }
+            catch (WebException e)
+            {
+                var error_msg = "This program is expected to throw WebException on successful run." +
+                                    "\n\nException Message :" + e.Message + "\n";
+                //Console.WriteLine(error_msg);
+
+                if (e.Status == WebExceptionStatus.ProtocolError)
+                {
+                    //Console.WriteLine("Status Code : {0}", ((HttpWebResponse)e.Response).StatusCode);
+                    //Console.WriteLine("Status Description : {0}", ((HttpWebResponse)e.Response).StatusDescription);
+                    var resp = new StreamReader(e.Response.GetResponseStream()).ReadToEnd();
+                    JObject obj = JObject.Parse(resp);
+
+                    //Console.WriteLine("Error:" + obj["error"]["message"].ToString());
+                    error_msg += "Detail: " + obj["error"]["message"].ToString();
+
+                }
+
+                rsResult.result = error_msg;
+                rsResult.rq_status = false;
+                //Console.WriteLine("error -------------: " + e.ToString());
+            }
+            catch (Exception ex)
+            {
+                rsResult.result = ex.Message;
+                rsResult.rq_status = false;
+                //Console.WriteLine("error -------------: " + ex.ToString());
+            }
+
+            return rsResult;
+        }
 
         public string XSignature_Generate()
         {          
